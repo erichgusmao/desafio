@@ -1,0 +1,32 @@
+cada um referenica um cotainer com serviço solicitado.
+
+
+
+## Nginx-Proxy
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://front-end:80;
+    }
+}
+
+
+## Prometheus
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'docker'
+    static_configs:
+      - targets: ['172.31.38.241:9323']
+
+
+
+## Pagina Static
+
+<h1>Bem-vindo ao Front-End Estático</h1>
+
+
+
